@@ -1,4 +1,4 @@
-
+// ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -112,7 +112,7 @@ class DataInputFormatter extends TextInputFormatter {
   }
 }
 
-//            TELA DE LOGIN 
+// ========== TELA DE LOGIN ==========
 class TelaLogin extends StatefulWidget {
   const TelaLogin({super.key});
 
@@ -127,7 +127,9 @@ class _TelaLoginState extends State<TelaLogin> {
   bool _senhaVisible = false;
   bool _isLoading = false;
 
-  
+  // The variable 'd_member_use' was not in lowerCamelCase and was also unused.
+  // It has been removed based on the comment below indicating it was a problematic line.
+  // get d_member_use => null; 
 
   Future<void> _fazerLogin() async {
     if (_emailController.text.isEmpty || _senhaController.text.isEmpty) {
@@ -182,7 +184,7 @@ class _TelaLoginState extends State<TelaLogin> {
       appBar: AppBar(
         title: const Text('Login'),
         centerTitle: true,
-        backgroundColor: Colors.green, 
+        backgroundColor: Colors.green, // Botão verde no AppBar
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -193,14 +195,18 @@ class _TelaLoginState extends State<TelaLogin> {
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                
-                color: Colors.green.withOpacity(0.1), 
+                // The problematic lines below were fixed:
+                // - Removed 'd_member_use'
+                // - Corrected 'color: Colors.green. withOpacity(0.1)' to 'color: Colors.green.withOpacity(0.1)'
+                // - Corrected 'shape: .circle' to 'shape: BoxShape.circle'
+                // The 'deprecated_member_use' diagnostic is already ignored for the whole file.
+                color: Colors.green.withOpacity(0.1), // Alterado para verde
                 shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.analytics_outlined,
                 size: 60,
-                color: Colors.green,
+                color: Colors.green, // Alterado para verde
               ),
             ),
             const SizedBox(height: 20),
@@ -243,7 +249,7 @@ class _TelaLoginState extends State<TelaLogin> {
             ),
             const SizedBox(height: 24),
 
-            
+            // BOTÃO ENTRAR EM VERDE
             SizedBox(
               width: double.infinity,
               height: 50,
@@ -266,7 +272,7 @@ class _TelaLoginState extends State<TelaLogin> {
             ),
             const SizedBox(height: 20),
 
-            
+            // LINK EM VERDE
             TextButton(
               onPressed: _isLoading
                   ? null
@@ -297,7 +303,7 @@ class _TelaLoginState extends State<TelaLogin> {
   }
 }
 
-
+// ========== TELA DE CADASTRO ==========
 class TelaCadastro extends StatefulWidget {
   const TelaCadastro({super.key});
 
@@ -462,7 +468,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('Cadastro realizado com sucesso!'),
-              backgroundColor: Colors.green, 
+              backgroundColor: Colors.green, // SnackBar verde
             ),
           );
           Navigator.pop(context);
@@ -486,7 +492,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
       appBar: AppBar(
         title: const Text('Cadastro'),
         centerTitle: true,
-        backgroundColor: Colors.green, 
+        backgroundColor: Colors.green, // AppBar verde
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -580,7 +586,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                   suffixIcon: IconButton(
                     icon: Icon(
                       _senhaVisible ? Icons.visibility : Icons.visibility_off,
-                      color: Colors.green, 
+                      color: Colors.green, // Ícone verde
                     ),
                     onPressed: () =>
                         setState(() => _senhaVisible = !_senhaVisible),
@@ -625,7 +631,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
                       _confirmacaoVisible
                           ? Icons.visibility
                           : Icons.visibility_off,
-                      color: Colors.green, 
+                      color: Colors.green, // Ícone verde
                     ),
                     onPressed: () => setState(
                       () => _confirmacaoVisible = !_confirmacaoVisible,
@@ -643,7 +649,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
               ),
               const SizedBox(height: 32),
 
-              // BOTÃO CADASTRAR 
+              // BOTÃO CADASTRAR EM VERDE
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -698,7 +704,7 @@ class _TelaCadastroState extends State<TelaCadastro> {
   }
 }
 
-
+// ========== TELA PRINCIPAL ==========
 class TelaPrincipal extends StatefulWidget {
   final String userName;
 
@@ -827,10 +833,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       appBar: AppBar(
         title: const Text("Analisador de Texto"),
         centerTitle: true,
-        backgroundColor: Colors.green, 
+        backgroundColor: Colors.green, // AppBar verde
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white), /
+            icon: const Icon(Icons.logout, color: Colors.white), // Ícone branco
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -845,7 +851,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
-            color: Colors.green.withOpacity(0.1), 
+            color: Colors.green.withOpacity(0.1), // Alterado para verde
             child: Text(
               "Bem-vindo, ${widget.userName}!",
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -870,7 +876,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                     icon: const Icon(
                       Icons.clear,
                       color: Colors.green,
-                    ), 
+                    ), // Ícone verde
                     onPressed: _limparTexto,
                   ),
                 ),
@@ -911,7 +917,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   }
 }
 
-
+// ========== TELA DE RESULTADOS ==========
 class TelaResultados extends StatelessWidget {
   final String texto;
   final int charCount;
@@ -938,7 +944,7 @@ class TelaResultados extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Resultados da Análise"),
         centerTitle: true,
-        backgroundColor: Colors.green, 
+        backgroundColor: Colors.green, // AppBar verde
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
@@ -1018,14 +1024,14 @@ class TelaResultados extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: Colors.green.withOpacity(
                                   0.1,
-                                ), 
+                                ), // Alterado para verde
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(
                                 '${e.value}',
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.green, 
+                                  color: Colors.green, // Alterado para verde
                                 ),
                               ),
                             ),
@@ -1063,7 +1069,7 @@ class TelaResultados extends StatelessWidget {
             value,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.green, 
+              color: Colors.green, // Alterado para verde
             ),
           ),
         ],
